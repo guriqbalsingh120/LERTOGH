@@ -1,0 +1,284 @@
+-- MySQL Administrator dump 1.4
+--
+-- ------------------------------------------------------
+-- Server version	5.5.30
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+--
+-- Create schema lertogh
+--
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ lertogh;
+USE lertogh;
+
+--
+-- Table structure for table `lertogh`.`carrers`
+--
+
+DROP TABLE IF EXISTS `carrers`;
+CREATE TABLE `carrers` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `job` varchar(45) NOT NULL DEFAULT '',
+  `about` varchar(500) NOT NULL DEFAULT '',
+  `skill` varchar(500) NOT NULL DEFAULT '',
+  `pack` varchar(45) NOT NULL DEFAULT '',
+  `exp` varchar(45) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `lertogh`.`carrers`
+--
+
+/*!40000 ALTER TABLE `carrers` DISABLE KEYS */;
+INSERT INTO `carrers` (`id`,`job`,`about`,`skill`,`pack`,`exp`) VALUES 
+ (1,'java','good in collection','java,jdbc','5lpa','0-4'),
+ (2,'python ','vary fast','python','2lpa','0');
+/*!40000 ALTER TABLE `carrers` ENABLE KEYS */;
+
+
+--
+-- Table structure for table `lertogh`.`course`
+--
+
+DROP TABLE IF EXISTS `course`;
+CREATE TABLE `course` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(45) NOT NULL DEFAULT '',
+  `content` varchar(1000) NOT NULL DEFAULT '',
+  `dt` varchar(45) NOT NULL DEFAULT '',
+  `logo` varchar(2000) NOT NULL DEFAULT '',
+  `savepath` varchar(1000) NOT NULL DEFAULT '',
+  `fees` varchar(45) NOT NULL DEFAULT '',
+  `ctime` varchar(45) NOT NULL DEFAULT '',
+  `clink` varchar(45) NOT NULL DEFAULT '',
+  `cdate` varchar(45) NOT NULL DEFAULT '',
+  `drive` varchar(300) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `lertogh`.`course`
+--
+
+/*!40000 ALTER TABLE `course` DISABLE KEYS */;
+/*!40000 ALTER TABLE `course` ENABLE KEYS */;
+
+
+--
+-- Table structure for table `lertogh`.`feedback`
+--
+
+DROP TABLE IF EXISTS `feedback`;
+CREATE TABLE `feedback` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `email` varchar(45) NOT NULL DEFAULT '',
+  `msg` varchar(45) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `lertogh`.`feedback`
+--
+
+/*!40000 ALTER TABLE `feedback` DISABLE KEYS */;
+/*!40000 ALTER TABLE `feedback` ENABLE KEYS */;
+
+
+--
+-- Table structure for table `lertogh`.`fees`
+--
+
+DROP TABLE IF EXISTS `fees`;
+CREATE TABLE `fees` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `stdemail` varchar(45) NOT NULL DEFAULT '',
+  `course` varchar(45) NOT NULL DEFAULT '',
+  `amount` varchar(45) NOT NULL DEFAULT '',
+  `transid` varchar(100) NOT NULL DEFAULT '',
+  `date` varchar(45) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `lertogh`.`fees`
+--
+
+/*!40000 ALTER TABLE `fees` DISABLE KEYS */;
+/*!40000 ALTER TABLE `fees` ENABLE KEYS */;
+
+
+--
+-- Table structure for table `lertogh`.`jobapp`
+--
+
+DROP TABLE IF EXISTS `jobapp`;
+CREATE TABLE `jobapp` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `stdemail` varchar(45) NOT NULL DEFAULT '',
+  `jobid` varchar(45) NOT NULL DEFAULT '',
+  `edu` varchar(45) NOT NULL DEFAULT '',
+  `clg` varchar(45) NOT NULL DEFAULT '',
+  `marks` varchar(45) NOT NULL DEFAULT '',
+  `skill` varchar(500) NOT NULL DEFAULT '',
+  `exp` varchar(45) NOT NULL DEFAULT '',
+  `resume` varchar(1000) NOT NULL DEFAULT '',
+  `savepath` varchar(1000) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `lertogh`.`jobapp`
+--
+
+/*!40000 ALTER TABLE `jobapp` DISABLE KEYS */;
+INSERT INTO `jobapp` (`id`,`stdemail`,`jobid`,`edu`,`clg`,`marks`,`skill`,`exp`,`resume`,`savepath`) VALUES 
+ (2,'guri@gmail.com','1','b.tech','bbesbec','78','java','2','images\\trainingReport.pdf','C:\\Users\\HP\\Desktop\\adv java 2\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\myproject\\\\images\\trainingReport.pdf');
+/*!40000 ALTER TABLE `jobapp` ENABLE KEYS */;
+
+
+--
+-- Table structure for table `lertogh`.`stdcourse`
+--
+
+DROP TABLE IF EXISTS `stdcourse`;
+CREATE TABLE `stdcourse` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `stdemail` varchar(45) NOT NULL DEFAULT '',
+  `course` varchar(45) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `lertogh`.`stdcourse`
+--
+
+/*!40000 ALTER TABLE `stdcourse` DISABLE KEYS */;
+INSERT INTO `stdcourse` (`id`,`stdemail`,`course`) VALUES 
+ (1,'gucci@gmail.com','kotlin'),
+ (2,'guri@gmail.com','java'),
+ (3,'guri@gmail.com','python');
+/*!40000 ALTER TABLE `stdcourse` ENABLE KEYS */;
+
+
+--
+-- Table structure for table `lertogh`.`stdcs`
+--
+
+DROP TABLE IF EXISTS `stdcs`;
+CREATE TABLE `stdcs` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `stdemail` varchar(45) NOT NULL DEFAULT '',
+  `course` varchar(45) NOT NULL DEFAULT '',
+  `cstatus` varchar(45) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `lertogh`.`stdcs`
+--
+
+/*!40000 ALTER TABLE `stdcs` DISABLE KEYS */;
+INSERT INTO `stdcs` (`id`,`stdemail`,`course`,`cstatus`) VALUES 
+ (1,'gucci@gmail.com','kotlin','Confirmed');
+/*!40000 ALTER TABLE `stdcs` ENABLE KEYS */;
+
+
+--
+-- Table structure for table `lertogh`.`stdjs`
+--
+
+DROP TABLE IF EXISTS `stdjs`;
+CREATE TABLE `stdjs` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `stdemail` varchar(45) NOT NULL DEFAULT '',
+  `job` varchar(45) NOT NULL DEFAULT '',
+  `jstatus` varchar(45) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `lertogh`.`stdjs`
+--
+
+/*!40000 ALTER TABLE `stdjs` DISABLE KEYS */;
+INSERT INTO `stdjs` (`id`,`stdemail`,`job`,`jstatus`) VALUES 
+ (2,'guri@gmail.com','java','pending');
+/*!40000 ALTER TABLE `stdjs` ENABLE KEYS */;
+
+
+--
+-- Table structure for table `lertogh`.`student`
+--
+
+DROP TABLE IF EXISTS `student`;
+CREATE TABLE `student` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `fname` varchar(45) NOT NULL DEFAULT '',
+  `lname` varchar(45) NOT NULL DEFAULT '',
+  `age` varchar(45) NOT NULL DEFAULT '',
+  `gender` varchar(45) NOT NULL DEFAULT '',
+  `collage` varchar(45) NOT NULL DEFAULT '',
+  `email` varchar(45) NOT NULL DEFAULT '',
+  `mob` varchar(45) NOT NULL DEFAULT '',
+  `sem` varchar(45) NOT NULL DEFAULT '',
+  `secq` varchar(45) NOT NULL DEFAULT '',
+  `ans` varchar(45) NOT NULL DEFAULT '',
+  `pass1` varchar(45) NOT NULL DEFAULT '',
+  `adrs` varchar(45) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `lertogh`.`student`
+--
+
+/*!40000 ALTER TABLE `student` DISABLE KEYS */;
+INSERT INTO `student` (`id`,`fname`,`lname`,`age`,`gender`,`collage`,`email`,`mob`,`sem`,`secq`,`ans`,`pass1`,`adrs`) VALUES 
+ (1,'Guriqbal','Singh','2022-05-04','Male','bbsbec','guri@gmail.com','356236723','8','What is your mother DOB','12july1967','12345','# 1mathura Colony,patiala'),
+ (2,'niddi','bali','2022-05-15','female','dav','niddi@gmail.com','898687587','1','What is your first school','dav','nidhi','ropar');
+/*!40000 ALTER TABLE `student` ENABLE KEYS */;
+
+
+--
+-- Table structure for table `lertogh`.`transactions`
+--
+
+DROP TABLE IF EXISTS `transactions`;
+CREATE TABLE `transactions` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `stdemail` varchar(45) NOT NULL DEFAULT '',
+  `date` varchar(45) NOT NULL DEFAULT '',
+  `transid` varchar(45) NOT NULL DEFAULT '',
+  `amount` varchar(45) NOT NULL DEFAULT '',
+  `result` varchar(45) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `lertogh`.`transactions`
+--
+
+/*!40000 ALTER TABLE `transactions` DISABLE KEYS */;
+INSERT INTO `transactions` (`id`,`stdemail`,`date`,`transid`,`amount`,`result`) VALUES 
+ (1,'guri@gmail.com','2022-05-13','hdihsdigf32733','10000','success'),
+ (2,'guri@gmail.com','2022-05-13','dvniuds8989','12000','success');
+/*!40000 ALTER TABLE `transactions` ENABLE KEYS */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
